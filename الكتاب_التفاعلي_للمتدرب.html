@@ -1,0 +1,2317 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كتاب المتدرب التفاعلي | ريادة الأعمال الرقمية</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --primary-dark: #172554;
+            --accent: #0d9488;
+            --accent-light: #14b8a6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        /* Top Header & Branding */
+        header.hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0d9488 100%);
+            color: #ffffff;
+            padding: 30px 20px 45px;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+        }
+
+        header .institution-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(8px);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        header h1 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        header p.subtitle {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 12px;
+            font-weight: 400;
+        }
+
+        header .author-badge {
+            font-size: 0.95rem;
+            background: rgba(0,0,0,0.25);
+            display: inline-block;
+            padding: 5px 16px;
+            border-radius: 20px;
+            color: #f1f5f9;
+        }
+
+        /* Progress Bar Strip */
+        .progress-strip-container {
+            max-width: 1100px;
+            margin: -22px auto 25px;
+            padding: 0 15px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .progress-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 16px 24px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .progress-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .progress-label {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--primary);
+        }
+
+        .progress-track {
+            flex-grow: 1;
+            min-width: 200px;
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--primary-light) 100%);
+            border-radius: 20px;
+            transition: width 0.4s ease;
+        }
+
+        .progress-percent {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.1rem;
+            min-width: 48px;
+            text-align: left;
+        }
+
+        .action-buttons-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-accent { background: var(--accent); color: white; }
+        .btn-accent:hover { background: #0f766e; }
+        .btn-outline { background: white; color: var(--text-main); border: 1px solid var(--border); }
+        .btn-outline:hover { background: #f1f5f9; }
+        .btn-success { background: var(--success); color: white; }
+        .btn-success:hover { background: #059669; }
+
+        /* Container Layout */
+        .main-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Trainee & Team Profile Section */
+        .profile-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            margin-bottom: 25px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .profile-header h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        .form-control {
+            padding: 9px 12px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 0.92rem;
+            transition: border-color 0.2s;
+            background: #fff;
+            color: var(--text-main);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        textarea.form-control {
+            min-height: 85px;
+            resize: vertical;
+            line-height: 1.5;
+        }
+
+        /* Navigation Tabs */
+        .tabs-nav {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            scrollbar-width: thin;
+        }
+
+        .tab-btn {
+            background: white;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-btn:hover {
+            color: var(--primary);
+            border-color: var(--primary-light);
+            background: #eff6ff;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 10px rgba(30, 58, 138, 0.25);
+        }
+
+        /* Tab Content Panes */
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card Section Styling */
+        .section-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 12px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title .icon-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .section-title h2 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        .step-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* Callout Box */
+        .callout {
+            background: #f0fdf4;
+            border-right: 4px solid var(--success);
+            padding: 12px 18px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 18px;
+            font-size: 0.92rem;
+            color: #166534;
+        }
+
+        .callout-info {
+            background: #eff6ff;
+            border-right-color: var(--primary-light);
+            color: #1e40af;
+        }
+
+        .callout-warning {
+            background: #fffbeb;
+            border-right-color: var(--warning);
+            color: #92400e;
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 18px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+        }
+
+        table.custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            text-align: right;
+        }
+
+        table.custom-table th {
+            background: #f1f5f9;
+            color: var(--text-main);
+            padding: 12px 14px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+        }
+
+        table.custom-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: middle;
+        }
+
+        table.custom-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.custom-table tr:hover td {
+            background: #f8fafc;
+        }
+
+        /* Business Model Canvas Grid */
+        .bmc-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: auto auto auto;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .bmc-cell {
+            background: #fafafa;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bmc-cell.partners { grid-column: 1 / 2; grid-row: 1 / 3; }
+        .bmc-cell.activities { grid-column: 2 / 3; grid-row: 1 / 2; }
+        .bmc-cell.resources { grid-column: 2 / 3; grid-row: 2 / 3; }
+        .bmc-cell.value-prop { grid-column: 3 / 4; grid-row: 1 / 3; background: #eff6ff; border-color: #bfdbfe; }
+        .bmc-cell.relationships { grid-column: 4 / 5; grid-row: 1 / 2; }
+        .bmc-cell.channels { grid-column: 4 / 5; grid-row: 2 / 3; }
+        .bmc-cell.customers { grid-column: 5 / 6; grid-row: 1 / 3; background: #f0fdf4; border-color: #bbf7d0; }
+        .bmc-cell.costs { grid-column: 1 / 3; grid-row: 3 / 4; background: #fff1f2; border-color: #fecdd3; }
+        .bmc-cell.revenues { grid-column: 3 / 6; grid-row: 3 / 4; background: #ecfdf5; border-color: #a7f3d0; }
+
+        .bmc-header {
+            font-size: 0.85rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Unit Economics Calculator */
+        .calculator-box {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .calc-result-strip {
+            background: white;
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border: 1px solid var(--border);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .calc-metric {
+            text-align: center;
+        }
+
+        .calc-metric .metric-title {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .calc-metric .metric-value {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .calc-status-badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .badge-healthy { background: #dcfce7; color: #15803d; }
+        .badge-danger { background: #fee2e2; color: #b91c1c; }
+
+        /* Quiz / Pre-Assessment Styling */
+        .quiz-item {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            transition: all 0.2s;
+        }
+
+        .quiz-question {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .quiz-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.15s;
+            background: #fafafa;
+        }
+
+        .quiz-option:hover {
+            background: #f1f5f9;
+            border-color: var(--primary-light);
+        }
+
+        .quiz-option.correct {
+            background: #dcfce7 !important;
+            border-color: #22c55e !important;
+            color: #15803d !important;
+            font-weight: 700;
+        }
+
+        .quiz-option.wrong {
+            background: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            color: #b91c1c !important;
+        }
+
+        .quiz-explanation {
+            margin-top: 10px;
+            padding: 10px 14px;
+            background: #eff6ff;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            color: #1e40af;
+            display: none;
+        }
+
+        /* 2x2 Matrix Visual Box */
+        .matrix-2x2-wrapper {
+            background: #fafafa;
+            border: 2px dashed #cbd5e1;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .matrix-quadrants {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 12px;
+            min-height: 380px;
+        }
+
+        .quadrant {
+            border-radius: var(--radius-sm);
+            padding: 14px;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quadrant.top-right {
+            background: #ecfdf5;
+            border-color: #34d399;
+        }
+
+        .quadrant.top-left {
+            background: #fefce8;
+            border-color: #fde047;
+        }
+
+        .quadrant.bottom-right {
+            background: #f0f9ff;
+            border-color: #7dd3fc;
+        }
+
+        .quadrant.bottom-left {
+            background: #fff1f2;
+            border-color: #fda4af;
+        }
+
+        .quadrant-title {
+            font-size: 0.88rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Modal Case Study */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--radius-md);
+            max-width: 800px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 24px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            background: none;
+            border: none;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #0f172a;
+            color: white;
+            padding: 12px 22px;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 2000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating Nav bar at bottom for mobile */
+        .bottom-actions {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            border-top: 1px solid var(--border);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            z-index: 50;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding-bottom: 0;
+            }
+            header.hero {
+                background: none !important;
+                color: black !important;
+                padding: 10px 0 !important;
+                border-bottom: 2px solid #000;
+            }
+            .progress-strip-container, .tabs-nav, .action-buttons-group, .bottom-actions, .btn, .step-badge, .modal-close {
+                display: none !important;
+            }
+            .tab-pane {
+                display: block !important;
+                page-break-after: always;
+            }
+            .section-card {
+                box-shadow: none !important;
+                border: 1px solid #94a3b8 !important;
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+            }
+            .form-control, textarea {
+                border: 1px solid #cbd5e1 !important;
+                background: transparent !important;
+                font-size: 10pt !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.6rem; }
+            .bmc-grid { grid-template-columns: 1fr; }
+            .bmc-cell { grid-column: auto !important; grid-row: auto !important; }
+            .matrix-quadrants { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Hero -->
+    <header class="hero">
+        <div class="institution-tag">
+            <i class="fa-solid fa-graduation-cap"></i>
+            جمهورية مصر العربية - وزارة التعليم العالي | معهد راية العالي للإدارة والتجارة الخارجية
+        </div>
+        <h1>ريادة الأعمال الرقمية: من الفكرة إلى اكتمال المشروع</h1>
+        <p class="subtitle">الحقيبة التدريبية وكتاب أنشطة وتطبيقات المتدرب التفاعلي (دورة رقم 27 - خريف 2026)</p>
+        <div class="author-badge">
+            <i class="fa-solid fa-user-tie"></i> إشراف وإعداد: د. شادي محمد عبد العزيز | مدرس إدارة الأعمال وخبير ريادة الأعمال
+        </div>
+    </header>
+
+    <!-- Progress Strip & Main Controls -->
+    <div class="progress-strip-container">
+        <div class="progress-card">
+            <div class="progress-info">
+                <span class="progress-label"><i class="fa-solid fa-chart-pie"></i> نسبة إنجاز الأنشطة:</span>
+                <div class="progress-track">
+                    <div class="progress-fill" id="globalProgressFill"></div>
+                </div>
+                <span class="progress-percent" id="globalProgressText">0%</span>
+            </div>
+            <div class="action-buttons-group">
+                <button class="btn btn-success" onclick="saveData(true)">
+                    <i class="fa-solid fa-floppy-disk"></i> حفظ التقدم
+                </button>
+                <button class="btn btn-accent" onclick="openCaseStudyModal('intro')">
+                    <i class="fa-solid fa-lightbulb"></i> دراسة حالة «سَكَن طُلاب»
+                </button>
+                <button class="btn btn-outline" onclick="exportDataJson()">
+                    <i class="fa-solid fa-download"></i> تصدير نسخة
+                </button>
+                <button class="btn btn-primary" onclick="window.print()">
+                    <i class="fa-solid fa-print"></i> طباعة / حفظ PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+
+        <!-- Trainee Profile Card -->
+        <div class="profile-card">
+            <div class="profile-header">
+                <i class="fa-solid fa-id-card fa-lg"></i>
+                <h3>بطاقة بيانات المتدرب والفريق الريادي</h3>
+            </div>
+            <div class="grid-4">
+                <div class="form-group">
+                    <label>اسم المتدرب / الطالب:</label>
+                    <input type="text" class="form-control auto-save" id="student_name" placeholder="مثال: أحمد محمود">
+                </div>
+                <div class="form-group">
+                    <label>اسم المشروع الرقمي المقترح:</label>
+                    <input type="text" class="form-control auto-save" id="project_name" placeholder="مثال: منصة سكن طالب">
+                </div>
+                <div class="form-group">
+                    <label>الدور الريادي في الفريق:</label>
+                    <select class="form-control auto-save" id="student_role">
+                        <option value="">-- اختر دورك --</option>
+                        <option value="Hustler">قائد المشروع ومنسق الفريق (Hustler / Lead)</option>
+                        <option value="Hipster">مسؤول التصميم وتجربة المستخدم (Hipster / UX)</option>
+                        <option value="Hacker">المسؤول التقني والتشغيلي (Hacker / Tech)</option>
+                        <option value="Analyst">المسؤول المالي والتسويقي (Analyst / Financial)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>رقم المجموعة والقاعة:</label>
+                    <input type="text" class="form-control auto-save" id="team_number" placeholder="مثال: مجموعة 3 - قاعة 102">
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="tabs-nav">
+            <button class="tab-btn active" onclick="switchTab('tab-overview')">
+                <i class="fa-solid fa-compass"></i> نظرة عامة والمنهجية
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-pre')">
+                <i class="fa-solid fa-list-check"></i> التقييم القبلي
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-day1')">
+                <i class="fa-solid fa-seedling"></i> اليوم 1: الفكرة والعميل
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-day2')">
+                <i class="fa-solid fa-shapes"></i> اليوم 2: الحل والمنافسة
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-day3')">
+                <i class="fa-solid fa-chart-line"></i> اليوم 3: نموذج العمل والمالية
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-day4')">
+                <i class="fa-solid fa-rocket"></i> اليوم 4: الاختبار والتحكيم
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-portfolio')">
+                <i class="fa-solid fa-folder-open"></i> ملف المشروع الـ 17
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-post')">
+                <i class="fa-solid fa-award"></i> التقييم والتحكيم
+            </button>
+        </div>
+
+        <!-- TAB 0: OVERVIEW -->
+        <div id="tab-overview" class="tab-pane active">
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-book-open"></i></div>
+                        <h2>فلسفة البرنامج ومنهجية الـ 24 خطوة (Bill Aulet - MIT)</h2>
+                    </div>
+                    <span class="step-badge">Disciplined Entrepreneurship</span>
+                </div>
+                <div class="callout callout-info">
+                    <strong>🎯 الفلسفة التعليمية:</strong> يقوم البرنامج على فلسفة "التعلم القائم على المشروعات (PBL)" والتعلم التجريبي؛ حيث لا تقتصر الدورة على التلقين، بل تخوض مع فريقك رحلة تحويل فكرة مجردة إلى ملف استثماري متكامل ونموذج أولي تجاري (MVBP).
+                </div>
+                
+                <h3 style="font-size:1.1rem; margin-bottom:12px; font-weight:800; color:var(--primary);">خريطة الأيام الأربعة والـ 24 خطوة المعتمدة:</h3>
+                <div class="grid-4" style="margin-bottom:20px;">
+                    <div style="background:#f1f5f9; padding:14px; border-radius:10px; border-right:4px solid var(--primary-light);">
+                        <strong style="color:var(--primary-dark); display:block; margin-bottom:5px;">اليوم الأول (الخطوات 1 إلى 6)</strong>
+                        <p style="font-size:0.85rem; color:var(--text-muted);">من الفكرة والمشكلة إلى تجزئة السوق واختيار السوق الأولي (Beachhead) وبناء شخصية العميل (Persona).</p>
+                    </div>
+                    <div style="background:#f1f5f9; padding:14px; border-radius:10px; border-right:4px solid var(--accent);">
+                        <strong style="color:var(--accent); display:block; margin-bottom:5px;">اليوم الثاني (الخطوات 7 إلى 11)</strong>
+                        <p style="font-size:0.85rem; color:var(--text-muted);">تصميم الحل، دورة حياة الاستخدام، القيمة المقاسة كمياً، واستخراج الجوهر الداخلي (The Core) والموقف التنافسي 2×2.</p>
+                    </div>
+                    <div style="background:#f1f5f9; padding:14px; border-radius:10px; border-right:4px solid var(--warning);">
+                        <strong style="color:#b45309; display:block; margin-bottom:5px;">اليوم الثالث (الخطوات 12 إلى 19)</strong>
+                        <p style="font-size:0.85rem; color:var(--text-muted);">نموذج العمل BMC، التسعير القائم على القيمة، اقتصاديات الوحدة (LTV vs. COCA)، ومصفوفة RACI.</p>
+                    </div>
+                    <div style="background:#f1f5f9; padding:14px; border-radius:10px; border-right:4px solid var(--success);">
+                        <strong style="color:#15803d; display:block; margin-bottom:5px;">اليوم الرابع (الخطوات 20 إلى 24)</strong>
+                        <p style="font-size:0.85rem; color:var(--text-muted);">اختبار الفرضيات القاتلة، المنتج التجاري الأدنى (MVBP)، خطة الـ 90 يوماً، والعرض النهائي (Pitch Deck).</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 15px;">
+                    <button class="btn btn-primary" onclick="switchTab('tab-pre')">
+                        البدء في التقييم القبلي <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 1: PRE-ASSESSMENT -->
+        <div id="tab-pre" class="tab-pane">
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-clipboard-question"></i></div>
+                        <h2>التقييم القبلي التشخيصي (Diagnostic Pre-Assessment)</h2>
+                    </div>
+                    <span class="step-badge">15 دقيقة - قياس المعرفة السابقة</span>
+                </div>
+                <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:18px;">
+                    أجب عن الأسئلة الخمسة التالية لقياس معرفتك التأسيسية قبل الانطلاق. اضغط على الإجابة لرؤية التقييم الفوري والتفسير العلمي المستند لمنهجية بيل أوليت.
+                </p>
+
+                <!-- Q1 -->
+                <div class="quiz-item" data-correct="1">
+                    <div class="quiz-question">1. ما الفارق الجوهري بين الشركة الناشئة (Startup) والمشروع الصغير التقليدي؟</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkQuiz(this, 0)">أ) حجم رأس المال وعدد الشركاء فقط.</div>
+                        <div class="quiz-option" onclick="checkQuiz(this, 1)">ب) البحث عن نموذج عمل قابل للتكرار والنمو السريع (Repeatable & Scalable) في ظل عدم يقين شديد.</div>
+                        <div class="quiz-option" onclick="checkQuiz(this, 2)">ج) توفر مقر دائم وعدد موظفين محدد.</div>
+                    </div>
+                    <div class="quiz-explanation">
+                        💡 <strong>التفسير العلمي:</strong> وفق تعريف ستيف بلانك وإريك ريس، الشركة الناشئة منظمة مؤقتة تبحث عن نموذج عمل قابل للتكرار والنمو السريع، بينما المشروع التقليدي ينفذ نموذجاً معروفاً ومحدود التوسع.
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="quiz-item" data-correct="1">
+                    <div class="quiz-question">2. ماذا يعني مصطلح "السوق الأولي" (Beachhead Market) وفق خطوة بيل أوليت الثانية؟</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkQuiz(this, 0)">أ) السوق الأكبر حجماً والأكثر ميزانية في الدولة بأسرها.</div>
+                        <div class="quiz-option" onclick="checkQuiz(this, 1)">ب) شريحة سوقية ضيقة ومركزة يمكن للمشروع السيطرة التامة عليها أولاً لتكون قاعدة انطلاق صلبة.</div>
+                        <div class="quiz-option" onclick="checkQuiz(this, 2)">ج) الأسواق الدولية والعالمية المستهدفة بعد 5 سنوات.</div>
+                    </div>
+                    <div class="quiz-explanation">
+                        💡 <strong>التفسير العلمي:</strong> تشبه عملية إنزال نورماندي العسكرية؛ البدء بشريحة محددة ومركزة يمنع تشتت الموارد المحدودة ويضمن الهيمنة السريعة.
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="quiz-item" data-correct="1">
+                    <div class="quiz-question">3. ما هو المفهوم العلمي الدقيق لـ "القيمة المقترحة المقاسة كمياً" (Quantified Value Proposition)؟</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkQuiz(this, 0)">أ) كتابة شعارات وعبارات تسويقية عامة مثل "تطبيقنا يقدم أعلى جودة وأقل سعر".</div>
+                        <div class="quiz-option" onclick="checkQuiz(this, 1)">ب) قياس الفارق الرقمي الملموس في الوقت والمال والأمان بين وضع العميل الراهن ووضعه بعد الحل.</div>
+                        <div class="quiz-option" onclick="checkQuiz(this, 2)">ج) عدد التحميلات المتوقعة للتطبيق في السنة الأولى.</div>
+                    </div>
+                    <div class="quiz-explanation">
+                        💡 <strong>التفسير العلمي:</strong> يقول بيل أوليت: "إذا لم تستطع التعبير عن قيمتك برقم، فأنت لا تعرف قيمتك الحقيقية".
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="quiz-item" data-correct="1">
+                    <div class="quiz-question">4. ما هي القاعدة الذهبية القتصاديات الوحدة (Unit Economics) لضمان استدامة الشركة الناشئة؟</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkQuiz(this, 0)">أ) أن تكون القيمة الدائمة للعميل (LTV) مساوية تماماً لتكلفة اكتسابه (COCA).</div>
+                        <div class="quiz-option" onclick="checkQuiz(this, 1)">ب) أن تتجاوز القيمة الدائمة للعميل (LTV) ثلاثة أضعاف تكلفة اكتسابه على الأقل (LTV / COCA ≥ 3.0x).</div>
+                        <div class="quiz-option" onclick="checkQuiz(this, 2)">ج) أن تكون تكلفة الحملات الإعلانية مساوية لصفر.</div>
+                    </div>
+                    <div class="quiz-explanation">
+                        💡 <strong>التفسير العلمي:</strong> نسبة 3x فأكثر تضمن قدرة المشروع على تغطية التكاليف التشغيلية الثابتة ومصاريف التوسع واستيعاب تقلبات السوق.
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="quiz-item" data-correct="1">
+                    <div class="quiz-question">5. ما الفرق الجوهري بين المنتج الأولي التقني (MVP) والمنتج التجاري الأدنى (MVBP - Step 22)؟</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkQuiz(this, 0)">أ) الـ MVBP يتطلب كوداً برمجياً ضخماً وجميع الميزات التخيلية دفعة واحدة.</div>
+                        <div class="quiz-option" onclick="checkQuiz(this, 1)">ب) الـ MVBP يشترط دفع العميل مقابلاً مالياً حقيقياً يثبت وجود صفقة تجارية واقعية وتبدأ حلقة التعلم.</div>
+                        <div class="quiz-option" onclick="checkQuiz(this, 2)">ج) لا يوجد أي فرق بينهما؛ كلاهما يعني تقديم خدمة مجانية.</div>
+                    </div>
+                    <div class="quiz-explanation">
+                        💡 <strong>التفسير العلمي:</strong> دفع المال الفعلي (حتى لو كان عربوناً رمزياً) هو الدليل الموضوعي الوحيد على وجود مشكلة مؤلمة تستحق الحل.
+                    </div>
+                </div>
+
+                <div id="quizResultBox" style="display:none; margin-top:20px; padding:16px; border-radius:10px; background:#eff6ff; text-align:center;">
+                    <h4 style="color:var(--primary); font-weight:800;" id="quizScoreText">درجتك في التقييم القبلي: 0 من 5</h4>
+                    <p style="font-size:0.88rem; color:var(--text-muted); margin-top:5px;">رائع! أنت جاهز الآن للانطلاق في ورش عمل اليوم التدريبي الأول.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: DAY 1 WORKSHOPS -->
+        <div id="tab-day1" class="tab-pane">
+            
+            <!-- Activity 1.1 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-bullseye"></i></div>
+                        <h2>نشاط (1.1): بطاقة الفكرة الرقمية والمشكلة المعالجة</h2>
+                    </div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <span class="step-badge">35 دقيقة - عمل جماعي</span>
+                        <button class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;" onclick="openCaseStudyModal('day1_1')">
+                            🔍 نموذج سكن طالب
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom:14px;">
+                    <label>1. ما هو الاسم المبدئي المعبر عن فكرة المشروع والمنصة الرقمية؟</label>
+                    <input type="text" class="form-control auto-save" id="d1_app_name" placeholder="اكتب اسم المنصة أو التطبيق المقترح...">
+                </div>
+
+                <div class="form-group" style="margin-bottom:14px;">
+                    <label>2. ما هي المشكلة الحقيقية القائمة؟ (المعاناة أو الألم أو النقص الذي يعاني منه الناس حالياً):</label>
+                    <textarea class="form-control auto-save" id="d1_problem" placeholder="صف المعاناة والوجع الحقيقي الذي يتعرض له الناس اليوم..."></textarea>
+                </div>
+
+                <div class="form-group" style="margin-bottom:14px;">
+                    <label>3. المتضرر الرئيسي (الضحية): من هو الشخص أو الفئة الأكثر تضرراً من استمرار المشكلة؟</label>
+                    <input type="text" class="form-control auto-save" id="d1_victim" placeholder="حدد الفئة المتضررة بدقة...">
+                </div>
+
+                <div class="form-group" style="margin-bottom:14px;">
+                    <label>4. الحلول والبدائل الحالية: كيف يتعامل المتضرر مع المشكلة اليوم في غياب مشروعكم؟ وما عيوبها؟</label>
+                    <textarea class="form-control auto-save" id="d1_alternatives" placeholder="اذكر البدائل المتاحة حالياً وما يعيبها (بطء، نصب، تكلفة باهظة...)..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>5. الحل الرقمي المبتكر: كيف ستحل التقنية (منصة / تطبيق / ويب) هذه المشكلة بأسلوب أسهل وأسرع؟</label>
+                    <textarea class="form-control auto-save" id="d1_digital_solution" placeholder="وضح آلية الحل التقني الذي يقدمه مشروعك..."></textarea>
+                </div>
+            </div>
+
+            <!-- Activity 1.2 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-crosshairs"></i></div>
+                        <h2>نشاط (1.2): مصفوفة اختيار السوق الأولي (Beachhead Market Selection)</h2>
+                    </div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <span class="step-badge">Aulet Step 2 - 20 دقيقة</span>
+                        <button class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;" onclick="openCaseStudyModal('day1_2')">
+                            🔍 نموذج سكن طالب
+                        </button>
+                    </div>
+                </div>
+
+                <div class="callout callout-info">
+                    💡 <strong>توجيه بيل أوليت:</strong> قارن بين 3 شرائح سوقية محتملة استناداً إلى المعايير السبعة، واختر الشريحة التي تحقق أعلى توافق لتكون "سوق رأس الجسر".
+                </div>
+
+                <div class="table-responsive">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th style="width:35%;">معايير المفاضلة والاختيار (Aulet, 2013)</th>
+                                <th style="width:21%;">الشريحة (أ)</th>
+                                <th style="width:21%;">الشريحة (ب)</th>
+                                <th style="width:21%;">الشريحة (ج)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>تسمية الشريحة ووصفها:</strong></td>
+                                <td><input type="text" class="form-control auto-save" id="seg_a_name" placeholder="شريحة أ"></td>
+                                <td><input type="text" class="form-control auto-save" id="seg_b_name" placeholder="شريحة ب"></td>
+                                <td><input type="text" class="form-control auto-save" id="seg_c_name" placeholder="شريحة ج"></td>
+                            </tr>
+                            <tr>
+                                <td>1. هل يمتلك العميل الميزانية الكافية للشراء؟</td>
+                                <td><select class="form-control auto-save" id="seg_a_q1"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                                <td><select class="form-control auto-save" id="seg_b_q1"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                                <td><select class="form-control auto-save" id="seg_c_q1"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                            </tr>
+                            <tr>
+                                <td>2. هل يسهل الوصول إليه بقنوات واضحة؟</td>
+                                <td><select class="form-control auto-save" id="seg_a_q2"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                                <td><select class="form-control auto-save" id="seg_b_q2"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                                <td><select class="form-control auto-save" id="seg_c_q2"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                            </tr>
+                            <tr>
+                                <td>3. هل لديه سبب ملح وقاهر للشراء؟ (Compelling Reason)</td>
+                                <td><select class="form-control auto-save" id="seg_a_q3"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                                <td><select class="form-control auto-save" id="seg_b_q3"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                                <td><select class="form-control auto-save" id="seg_c_q3"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                            </tr>
+                            <tr>
+                                <td>4. هل يمكن تقديم حل كامل اليوم دون تعقيد؟</td>
+                                <td><select class="form-control auto-save" id="seg_a_q4"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                                <td><select class="form-control auto-save" id="seg_b_q4"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                                <td><select class="form-control auto-save" id="seg_c_q4"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                            </tr>
+                            <tr>
+                                <td>5. هل المنافسة ضعيفة أو يسهل التغلب عليها؟</td>
+                                <td><select class="form-control auto-save" id="seg_a_q5"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                                <td><select class="form-control auto-save" id="seg_b_q5"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                                <td><select class="form-control auto-save" id="seg_c_q5"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                            </tr>
+                            <tr>
+                                <td>6. هل تفتح هذه الشريحة الباب لأسواق تالية؟ (Follow-on)</td>
+                                <td><select class="form-control auto-save" id="seg_a_q6"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                                <td><select class="form-control auto-save" id="seg_b_q6"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                                <td><select class="form-control auto-save" id="seg_c_q6"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                            </tr>
+                            <tr>
+                                <td>7. هل يتطابق السوق مع قيم وشغف الفريق؟</td>
+                                <td><select class="form-control auto-save" id="seg_a_q7"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                                <td><select class="form-control auto-save" id="seg_b_q7"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                                <td><select class="form-control auto-save" id="seg_c_q7"><option value="">--</option><option value="نعم">نعم</option><option value="لا">لا</option></select></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="grid-4" style="grid-template-columns: 1fr 1fr;">
+                    <div class="form-group">
+                        <label>السوق الأولي المعتمد (The Selected Beachhead Market):</label>
+                        <input type="text" class="form-control auto-save" id="selected_beachhead" placeholder="حدد الشريحة الفائزة...">
+                    </div>
+                    <div class="form-group">
+                        <label>سبب ومبرر الاختيار النهائي:</label>
+                        <input type="text" class="form-control auto-save" id="beachhead_reason" placeholder="لماذا تم اختيار هذه الشريحة تحديداً؟">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity 1.3 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-user-gear"></i></div>
+                        <h2>نشاط (1.3): بطاقة شخصية العميل المعتمدة (Persona Profile Card)</h2>
+                    </div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <span class="step-badge">Aulet Step 5 - 20 دقيقة</span>
+                        <button class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;" onclick="openCaseStudyModal('day1_3')">
+                            🔍 نموذج سكن طالب
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid-4">
+                    <div class="form-group">
+                        <label>1. الاسم التخيلي والعمر:</label>
+                        <input type="text" class="form-control auto-save" id="persona_name_age" placeholder="مثال: أحمد إبراهيم (19 سنة)">
+                    </div>
+                    <div class="form-group">
+                        <label>2. الكلية / المعهد والموقع:</label>
+                        <input type="text" class="form-control auto-save" id="persona_faculty_loc" placeholder="مثال: معهد حلوان - مقيم بكفر الشيخ">
+                    </div>
+                    <div class="form-group">
+                        <label>3. الوضع المالي والميزانية المحددة:</label>
+                        <input type="text" class="form-control auto-save" id="persona_budget" placeholder="مثال: 1200 - 1600 ج شهرياً">
+                    </div>
+                    <div class="form-group">
+                        <label>4. السلوك الرقمي ووسائل الدفع:</label>
+                        <input type="text" class="form-control auto-save" id="persona_digital_behavior" placeholder="مثال: تيك توك، محفظة كاش، ميزة">
+                    </div>
+                </div>
+
+                <div class="grid-4" style="grid-template-columns: 1fr 1fr; margin-top:14px;">
+                    <div class="form-group">
+                        <label>5. أكبر دافع ومكسب يطمح إليه (Gain):</label>
+                        <textarea class="form-control auto-save" id="persona_gain" placeholder="ما الذي يريحه ويسعده في الحل؟"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>6. أكبر ألم وتخوف يخشى حدوثه (Pain):</label>
+                        <textarea class="form-control auto-save" id="persona_pain" placeholder="ما الذي يقلقه ويخشاه بشدة (النصب، ضياع الوقت...)؟"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top:14px;">
+                    <label>7. المعيار الحاسم لقرار الشراء والثقة الفورية:</label>
+                    <input type="text" class="form-control auto-save" id="persona_closing_factor" placeholder="ما الشرط أو الضمان الذي يجعله يثق ويدفع فوراً دون تردد؟">
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 15px;">
+                <button class="btn btn-primary" onclick="switchTab('tab-day2')">
+                    الانتقال لليوم الثاني: تصميم الحل <i class="fa-solid fa-arrow-left"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- TAB 3: DAY 2 WORKSHOPS -->
+        <div id="tab-day2" class="tab-pane">
+            
+            <!-- Activity 2.1 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-route"></i></div>
+                        <h2>نشاط (2.1): دورة حياة الاستخدام الكاملة والمواصفات العامة للواجهات</h2>
+                    </div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <span class="step-badge">Aulet Steps 6 & 7 - 35 دقيقة</span>
+                        <button class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;" onclick="openCaseStudyModal('day2_1')">
+                            🔍 نموذج سكن طالب
+                        </button>
+                    </div>
+                </div>
+
+                <h4 style="font-size:0.95rem; font-weight:800; color:var(--primary); margin-bottom:10px;">أ) دورة حياة الاستخدام الكاملة (Full Life Cycle Use Case):</h4>
+                <div class="table-responsive">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th style="width:25%;">المرحلة</th>
+                                <th style="width:35%;">السؤال التوجيهي</th>
+                                <th style="width:40%;">إجراءات وتفاعل العميل مع مشروعكم</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1. إدراك الحاجة والمشكلة</td>
+                                <td>متى وكيف يشعر العميل بالألم أو الحاجة؟</td>
+                                <td><input type="text" class="form-control auto-save" id="d2_cycle_1" placeholder="مثال: فور ظهور نتيجة التنسيق"></td>
+                            </tr>
+                            <tr>
+                                <td>2. اكتشاف المنتج الرقمي</td>
+                                <td>أين وكيف يعثر العميل على منصتكم أول مرة؟</td>
+                                <td><input type="text" class="form-control auto-save" id="d2_cycle_2" placeholder="مثال: إعلان فيديو تيك توك / سفراء المعاهد"></td>
+                            </tr>
+                            <tr>
+                                <td>3. المقارنة واتخاذ القرار</td>
+                                <td>ما الذي يجعله يفضلكم على البدائل القائمة؟</td>
+                                <td><input type="text" class="form-control auto-save" id="d2_cycle_3" placeholder="مثال: توثيق 360 درجة وعقد موحد"></td>
+                            </tr>
+                            <tr>
+                                <td>4. التسجيل والدخول السلس</td>
+                                <td>كيف يبدأ الاستخدام دون تعقيد؟ (Onboarding)</td>
+                                <td><input type="text" class="form-control auto-save" id="d2_cycle_4" placeholder="مثال: تسجيل برقم الهاتف في 3 نقرات"></td>
+                            </tr>
+                            <tr>
+                                <td>5. لحظة الحصول على القيمة</td>
+                                <td>متى يشعر بالبهجة والرضا أول مرة؟ (!Aha Moment)</td>
+                                <td><input type="text" class="form-control auto-save" id="d2_cycle_5" placeholder="مثال: ظهور غرف مطابقة مع توافق الزميل"></td>
+                            </tr>
+                            <tr>
+                                <td>6. دفع المقابل المالي</td>
+                                <td>ما هي طريقة الدفع الآمنة المريحة للعميل؟</td>
+                                <td><input type="text" class="form-control auto-save" id="d2_cycle_6" placeholder="مثال: فودافون كاش / ميزة مع تجميد المبلغ للضمان"></td>
+                            </tr>
+                            <tr>
+                                <td>7. التوصية ومشاركة التجربة</td>
+                                <td>كيف تجعل العميل سفيراً ومروجاً لحلكم؟</td>
+                                <td><input type="text" class="form-control auto-save" id="d2_cycle_7" placeholder="مثال: كود خصم مشاركة للزملاء"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 style="font-size:0.95rem; font-weight:800; color:var(--primary); margin:15px 0 10px;">ب) مواصفات الشاشات الرئيسية الثلاث (High-Level Specification):</h4>
+                <div class="grid-4" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="form-group">
+                        <label>الشاشة الأولى (الرئيسية / البحث):</label>
+                        <textarea class="form-control auto-save" id="d2_screen_1" placeholder="العناصر التي يراها العميل وطريقة التصفية والبحث..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>الشاشة الثانية (بطاقة الخدمة والتفاصيل):</label>
+                        <textarea class="form-control auto-save" id="d2_screen_2" placeholder="صور، فيديو، تفاصيل التحقق، التقييمات..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>الشاشة الثالثة (تأكيد الطلب والدفع):</label>
+                        <textarea class="form-control auto-save" id="d2_screen_3" placeholder="ملخص الشروط، خيارات الدفع، إصدار العقد والإيصال..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity 2.2 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-calculator"></i></div>
+                        <h2>نشاط (2.2): صياغة وقياس القيمة المقترحة كمياً (Quantified Value)</h2>
+                    </div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <span class="step-badge">Aulet Step 8 - 20 دقيقة</span>
+                        <button class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;" onclick="openCaseStudyModal('day2_2')">
+                            🔍 نموذج سكن طالب
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th style="width:25%;">مؤشر القياس والأولوية</th>
+                                <th style="width:25%;">حالة العميل الراهنة بدونكم (As-Is)</th>
+                                <th style="width:25%;">حالة العميل معكم (Possible)</th>
+                                <th style="width:25%;">صافي القيمة المضافة المحققة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. الوقت المستغرق لإنجاز المهمة</strong></td>
+                                <td><input type="text" class="form-control auto-save" id="d2_val_time_asis" placeholder="مثال: 4 إلى 6 أيام بحث شاق"></td>
+                                <td><input type="text" class="form-control auto-save" id="d2_val_time_pos" placeholder="مثال: أقل من 30 دقيقة من هاتفه"></td>
+                                <td><input type="text" class="form-control auto-save" id="d2_val_time_net" placeholder="مثال: توفير 95% من الوقت والجهد"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. التكلفة المالية والمصروفات</strong></td>
+                                <td><input type="text" class="form-control auto-save" id="d2_val_cost_asis" placeholder="مثال: 1200 ج عمولة سمسار + مصاريف سفر"></td>
+                                <td><input type="text" class="form-control auto-save" id="d2_val_cost_pos" placeholder="مثال: رسوم رمزية 350 ج فقط"></td>
+                                <td><input type="text" class="form-control auto-save" id="d2_val_cost_net" placeholder="مثال: توفير مالي يتجاوز 75%"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. نسبة الأمان والموثوقية</strong></td>
+                                <td><input type="text" class="form-control auto-save" id="d2_val_safe_asis" placeholder="مثال: مخاطر نصب عالية وغياب العقود"></td>
+                                <td><input type="text" class="form-control auto-save" id="d2_val_safe_pos" placeholder="مثال: فحص ميداني 100% وضمان استرداد"></td>
+                                <td><input type="text" class="form-control auto-save" id="d2_val_safe_net" placeholder="مثال: رفع الأمان إلى 98% وحماية الأموال"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. الجهد النفسي وتوافق الزملاء</strong></td>
+                                <td><input type="text" class="form-control auto-save" id="d2_val_effort_asis" placeholder="مثال: توتر عالي وخالفات محتملة"></td>
+                                <td><input type="text" class="form-control auto-save" id="d2_val_effort_pos" placeholder="مثال: مطابقة سلوكية لرفيق السكن"></td>
+                                <td><input type="text" class="form-control auto-save" id="d2_val_effort_net" placeholder="مثال: خفض احتمالية النزاعات بـ 80%"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Activity 2.3 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-chess-rook"></i></div>
+                        <h2>نشاط (2.3): الجوهر الداخلي (The Core) ورسم الموقف التنافسي 2×2</h2>
+                    </div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <span class="step-badge">Aulet Steps 10 & 11 - 20 دقيقة</span>
+                        <button class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;" onclick="openCaseStudyModal('day2_3')">
+                            🔍 نموذج سكن طالب
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid-4" style="grid-template-columns: 1fr 1fr; margin-bottom:15px;">
+                    <div class="form-group">
+                        <label>الجوهر التنافسي الداخلي الحصين (The Core):</label>
+                        <textarea class="form-control auto-save" id="d2_core_def" placeholder="ما هي القدرة الفريدة التي يمتلكها فريقكم ويصعب جداً على المنافسين نسخها؟"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>ركيزة حماية الجوهر واستدامته:</label>
+                        <textarea class="form-control auto-save" id="d2_core_protection" placeholder="هل يعتمد على تأثير الشبكة (Network Effects) / شراكة حصرية / خوارزمية ذكية / تكلفة منخفضة؟"></textarea>
+                    </div>
+                </div>
+
+                <div class="callout callout-warning">
+                    ⚖️ <strong>بناء مصفوفة التموضع التنافسي 2×2:</strong> حدد أهم أولويتين حاسمتين لدى شخصية العميل (المحور الأفقي X والمحور الرأسي Y)، وضع مشروعك دائماً في "الربع العلوي الأيمن" مدعوماً بجوهرك.
+                </div>
+
+                <div class="grid-4" style="grid-template-columns: 1fr 1fr; margin-bottom:12px;">
+                    <div class="form-group">
+                        <label>الأولوية الأولى للعميل (المحور الأفقي X):</label>
+                        <input type="text" class="form-control auto-save" id="matrix_axis_x" placeholder="مثال: درجة الأمان والموثوقية والتحقق الميداني">
+                    </div>
+                    <div class="form-group">
+                        <label>الأولوية الثانية للعميل (المحور الرأسي Y):</label>
+                        <input type="text" class="form-control auto-save" id="matrix_axis_y" placeholder="مثال: سرعة الحجز وتوفير التكلفة والشفافية">
+                    </div>
+                </div>
+
+                <!-- 2x2 Matrix Visual Display -->
+                <div class="matrix-2x2-wrapper">
+                    <div class="matrix-quadrants">
+                        <div class="quadrant top-left">
+                            <div class="quadrant-title" style="color:#a16207;">
+                                <i class="fa-solid fa-triangle-exclamation"></i> الربع العلوي الأيسر: بديل سريع غير آمن
+                            </div>
+                            <input type="text" class="form-control auto-save" style="margin-bottom:6px;" id="matrix_tl_name" placeholder="اسم البديل (مثال: مجموعات التواصل غير الرسمية)">
+                            <textarea class="form-control auto-save" style="font-size:0.8rem; min-height:60px;" id="matrix_tl_desc" placeholder="أوجه القصور القاتلة: انعدام الأمان وعربونات ضائعة..."></textarea>
+                        </div>
+                        <div class="quadrant top-right">
+                            <div class="quadrant-title" style="color:#047857;">
+                                <i class="fa-solid fa-crown"></i> الربع العلوي الأيمن: موقع مشروعكم الريادي ⭐
+                            </div>
+                            <input type="text" class="form-control auto-save" style="margin-bottom:6px; font-weight:700;" id="matrix_tr_name" placeholder="اسم مشروعكم الريادي">
+                            <textarea class="form-control auto-save" style="font-size:0.8rem; min-height:60px;" id="matrix_tr_desc" placeholder="كيف يجمع بين أعلى درجات الأمان والسرعة والتوفير محمي بالجوهر..."></textarea>
+                        </div>
+                        <div class="quadrant bottom-left">
+                            <div class="quadrant-title" style="color:#be123c;">
+                                <i class="fa-solid fa-skull-crossbones"></i> الربع السفلي الأيسر: الوضع الراهن (Status Quo)
+                            </div>
+                            <input type="text" class="form-control auto-save" style="margin-bottom:6px;" id="matrix_bl_name" placeholder="اسم البديل (مثال: السماسرة التقليديون)">
+                            <textarea class="form-control auto-save" style="font-size:0.8rem; min-height:60px;" id="matrix_bl_desc" placeholder="أسوأ الخيارات: تكلفة باهظة وبطء وانعدام موثوقية..."></textarea>
+                        </div>
+                        <div class="quadrant bottom-right">
+                            <div class="quadrant-title" style="color:#0369a1;">
+                                <i class="fa-solid fa-building-columns"></i> الربع السفلي الأيمن: بديل تقليدي / حكومي
+                            </div>
+                            <input type="text" class="form-control auto-save" style="margin-bottom:6px;" id="matrix_br_name" placeholder="اسم البديل (مثال: المدن الجامعية الحكومية)">
+                            <textarea class="form-control auto-save" style="font-size:0.8rem; min-height:60px;" id="matrix_br_desc" placeholder="أمان عالي لكن إجراءات ورقية معقدة وطاقة استيعاب محدودة..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 15px;">
+                <button class="btn btn-primary" onclick="switchTab('tab-day3')">
+                    الانتقال لليوم الثالث: نموذج العمل والمالية <i class="fa-solid fa-arrow-left"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- TAB 4: DAY 3 WORKSHOPS -->
+        <div id="tab-day3" class="tab-pane">
+            
+            <!-- Activity 3.1: BMC -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-table-cells-large"></i></div>
+                        <h2>نشاط (3.1): لوحة نموذج العمل التجاري الرقمي (Digital BMC)</h2>
+                    </div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <span class="step-badge">Aulet Step 15 - 35 دقيقة</span>
+                        <button class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;" onclick="openCaseStudyModal('day3_1')">
+                            🔍 نموذج سكن طالب
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bmc-grid">
+                    <div class="bmc-cell partners">
+                        <div class="bmc-header"><i class="fa-solid fa-handshake"></i> 8. الشركاء الرئيسيون</div>
+                        <textarea class="form-control auto-save" id="bmc_partners" placeholder="الحلفاء، بوابات الدفع، اتحادات الطلاب، ملاك العقارات..."></textarea>
+                    </div>
+                    <div class="bmc-cell activities">
+                        <div class="bmc-header"><i class="fa-solid fa-gears"></i> 7. الأنشطة الرئيسية</div>
+                        <textarea class="form-control auto-save" id="bmc_activities" placeholder="المعاينة الميدانية، فحص العقود، تطوير المنصة، التسويق..."></textarea>
+                    </div>
+                    <div class="bmc-cell resources">
+                        <div class="bmc-header"><i class="fa-solid fa-cubes"></i> 6. الموارد الرئيسية</div>
+                        <textarea class="form-control auto-save" id="bmc_resources" placeholder="السيرفرات، خوارزمية المطابقة، شبكة السفراء، العلامة..."></textarea>
+                    </div>
+                    <div class="bmc-cell value-prop">
+                        <div class="bmc-header"><i class="fa-solid fa-gift"></i> 2. القيمة المقترحة</div>
+                        <textarea class="form-control auto-save" id="bmc_value_prop" placeholder="المنفعة الجوهرية للطرفين (للعميل والمورد): أمان، توفير 75%، سرعة..."></textarea>
+                    </div>
+                    <div class="bmc-cell relationships">
+                        <div class="bmc-header"><i class="fa-solid fa-heart"></i> 4. علاقات العملاء</div>
+                        <textarea class="form-control auto-save" id="bmc_relationships" placeholder="خدمة ذاتية، دعم واتساب فوري 24/7، نقاط مكافآت..."></textarea>
+                    </div>
+                    <div class="bmc-cell channels">
+                        <div class="bmc-header"><i class="fa-solid fa-paper-plane"></i> 3. قنوات الوصول</div>
+                        <textarea class="form-control auto-save" id="bmc_channels" placeholder="منصة ويب PWA، تليجرام، تيك توك، سفراء الحرم الجامعي..."></textarea>
+                    </div>
+                    <div class="bmc-cell customers">
+                        <div class="bmc-header"><i class="fa-solid fa-users"></i> 1. شرائح العملاء</div>
+                        <textarea class="form-control auto-save" id="bmc_customers" placeholder="الجانب 1: الطلاب المغتربون وأولياء أمورهم. الجانب 2: ملاك العقارات..."></textarea>
+                    </div>
+                    <div class="bmc-cell costs">
+                        <div class="bmc-header"><i class="fa-solid fa-receipt"></i> 9. هيكل التكاليف</div>
+                        <textarea class="form-control auto-save" id="bmc_costs" placeholder="استضافة السيرفرات، مكافآت التوثيق الميداني، ميزانية الإعلانات الممولة..."></textarea>
+                    </div>
+                    <div class="bmc-cell revenues">
+                        <div class="bmc-header"><i class="fa-solid fa-money-bill-wave"></i> 5. مصادر الإيرادات والتسعير</div>
+                        <textarea class="form-control auto-save" id="bmc_revenues" placeholder="عمولة حجز ثابتة لكل معاملة (350 ج)، خدمات إضافية لصيانة ونقل الأمتعة..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity 3.2: Unit Economics Live Calculator -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-calculator"></i></div>
+                        <h2>نشاط (3.2): حاسبة اقتصاديات الوحدة الحية (Unit Economics: LTV vs. COCA)</h2>
+                    </div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <span class="step-badge">Aulet Steps 17 & 19 - تفاعلي فوري</span>
+                        <button class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;" onclick="openCaseStudyModal('day3_2')">
+                            🔍 نموذج سكن طالب
+                        </button>
+                    </div>
+                </div>
+
+                <div class="callout callout-info">
+                    ✨ <strong>حاسبة تفاعلية حية:</strong> أدخل الأرقام التقديرية لمشروعك، وستقوم الصفحة بحساب القيمة الدائمة للعميل (LTV)، وتكلفة اكتساب العميل (COCA)، وتقييم النسبة الذهبية (Golden Ratio) فورياً!
+                </div>
+
+                <div class="calculator-box">
+                    <div class="calc-grid">
+                        <div class="form-group">
+                            <label>1. متوسط صافي الربح من المعاملة (جنيه):</label>
+                            <input type="number" class="form-control auto-save" id="calc_profit_per_tx" value="320" oninput="calculateUnitEconomics()">
+                        </div>
+                        <div class="form-group">
+                            <label>2. عدد المعاملات المتوقعة للعميل طوال فترته:</label>
+                            <input type="number" step="0.1" class="form-control auto-save" id="calc_tx_count" value="2.2" oninput="calculateUnitEconomics()">
+                        </div>
+                        <div class="form-group">
+                            <label>3. ميزانية الحملة التسويقية الإجمالية (جنيه):</label>
+                            <input type="number" class="form-control auto-save" id="calc_marketing_budget" value="14000" oninput="calculateUnitEconomics()">
+                        </div>
+                        <div class="form-group">
+                            <label>4. عدد العملاء الجدد الفعليين من الحملة:</label>
+                            <input type="number" class="form-control auto-save" id="calc_acquired_customers" value="100" oninput="calculateUnitEconomics()">
+                        </div>
+                    </div>
+
+                    <div class="calc-result-strip">
+                        <div class="calc-metric">
+                            <div class="metric-title">القيمة الدائمة للعميل (LTV)</div>
+                            <div class="metric-value" id="res_ltv">704 ج</div>
+                        </div>
+                        <div class="calc-metric">
+                            <div class="metric-title">تكلفة اكتساب العميل (COCA)</div>
+                            <div class="metric-value" id="res_coca">140 ج</div>
+                        </div>
+                        <div class="calc-metric">
+                            <div class="metric-title">النسبة الذهبية (LTV / COCA)</div>
+                            <div class="metric-value" id="res_ratio">5.03x</div>
+                        </div>
+                        <div class="calc-metric">
+                            <div class="metric-title">التقييم الاستثماري</div>
+                            <div id="res_badge" class="calc-status-badge badge-healthy">🟢 ناجح ومستدام (تجاوز 3.0x)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity 3.3: RACI Matrix -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-users-viewfinder"></i></div>
+                        <h2>نشاط (3.3): مصفوفة الأدوار التشغيلية (RACI Operational Matrix) ووحدة القرار (DMU)</h2>
+                    </div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <span class="step-badge">Aulet Steps 12 & 18 - 20 دقيقة</span>
+                        <button class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;" onclick="openCaseStudyModal('day3_3')">
+                            🔍 نموذج سكن طالب
+                        </button>
+                    </div>
+                </div>
+
+                <h4 style="font-size:0.95rem; font-weight:800; color:var(--primary); margin-bottom:10px;">أ) أدوار وحدة اتخاذ القرار لدى العميل (Decision-Making Unit - DMU):</h4>
+                <div class="grid-4" style="grid-template-columns: repeat(3, 1fr); margin-bottom:15px;">
+                    <div class="form-group">
+                        <label>1. المستخدم النهائي (End User):</label>
+                        <input type="text" class="form-control auto-save" id="dmu_end_user" placeholder="من يعيش التجربة يومياً؟">
+                    </div>
+                    <div class="form-group">
+                        <label>2. المشتري الاقتصادي (Economic Buyer):</label>
+                        <input type="text" class="form-control auto-save" id="dmu_economic_buyer" placeholder="من يدفع المال ويمتلك الميزانية؟">
+                    </div>
+                    <div class="form-group">
+                        <label>3. صاحب حق النقض أو التأثير (Veto Power):</label>
+                        <input type="text" class="form-control auto-save" id="dmu_veto_power" placeholder="من يستطيع إيقاف الصفقة إن شعر بالخطر؟">
+                    </div>
+                </div>
+
+                <h4 style="font-size:0.95rem; font-weight:800; color:var(--primary); margin:15px 0 10px;">ب) مصفوفة RACI لتوزيع مهام فريق العمل:</h4>
+                <div class="table-responsive">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th style="width:30%;">المهمة / الوظيفة التشغيلية</th>
+                                <th style="width:35%;">الإجراء والمخرج المطلوب</th>
+                                <th style="width:35%;">المسؤول في الفريق وتصنيفه (RACI)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. العمليات والتوثيق الميداني</strong></td>
+                                <td>فحص جودة الخدمة ميدانياً، تصوير 360 درجة، ومطابقة الملكية</td>
+                                <td><input type="text" class="form-control auto-save" id="raci_field" placeholder="اسم العضو (مثال: طارق - Accountable)"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. خدمة العملاء والوساطة</strong></td>
+                                <td>الرد السريع عبر واتساب والهاتف، والوساطة وحل أي نزاع</td>
+                                <td><input type="text" class="form-control auto-save" id="raci_support" placeholder="اسم العضو (مثال: نورهان - Responsible)"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. التطوير التقني وإدارة المنصة</strong></td>
+                                <td>إدارة السيرفرات، الربط مع بوابات الدفع الإلكتروني، وتحديث الويب</td>
+                                <td><input type="text" class="form-control auto-save" id="raci_tech" placeholder="اسم العضو (مثال: عمر - Accountable)"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. التسويق الرقمي وإدارة النمو</strong></td>
+                                <td>إطلاق الحملات الممولة، إدارة شبكة السفراء، وصناعة المحتوى</td>
+                                <td><input type="text" class="form-control auto-save" id="raci_growth" placeholder="اسم العضو (مثال: سارة - Accountable)"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 15px;">
+                <button class="btn btn-primary" onclick="switchTab('tab-day4')">
+                    الانتقال لليوم الرابع: الاختبار والتحكيم <i class="fa-solid fa-arrow-left"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- TAB 5: DAY 4 WORKSHOPS -->
+        <div id="tab-day4" class="tab-pane">
+            
+            <!-- Activity 4.1 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-vial-circle-check"></i></div>
+                        <h2>نشاط (4.1): فرز واختبار الافتراضات الجوهرية الحرجة وتجربة المحاكاة</h2>
+                    </div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <span class="step-badge">Aulet Steps 20 & 21 - 35 دقيقة</span>
+                        <button class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;" onclick="openCaseStudyModal('day4_1')">
+                            🔍 نموذج سكن طالب
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom:14px;">
+                    <label>1. الفرضية القاتلة الأشد خطورة (Fatal Assumption):</label>
+                    <textarea class="form-control auto-save" id="d4_fatal_assumption" placeholder="ما هو الافتراض الذي إن ثبت عدم صحته سينهار نموذج العمل والجدوى بالكامل؟ (مثال: استعداد العميل للدفع المسبق...)"></textarea>
+                </div>
+
+                <div class="grid-4" style="grid-template-columns: 1fr 1fr; margin-bottom:14px;">
+                    <div class="form-group">
+                        <label>2. تصميم تجربة المحاكاة بالقاعة:</label>
+                        <textarea class="form-control auto-save" id="d4_sim_design" placeholder="كيف اختبرتم هذا الافتراض بأقل وقت وتكلفة داخل القاعة التدريبية؟"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>3. معيار النجاح الرقمي المحدد مسبقاً (Success Metric):</label>
+                        <textarea class="form-control auto-save" id="d4_sim_metric" placeholder="ما هي النسبة المئوية المحددة التي تثبت صحة الفرضية وتبرر الانطلاق؟ (مثال: قبول 60% فأكثر)"></textarea>
+                    </div>
+                </div>
+
+                <div class="grid-4" style="grid-template-columns: 1fr 1fr; margin-bottom:14px;">
+                    <div class="form-group">
+                        <label>4. النتيجة الرقمية ومعدل القبول الفعلي المتحقق:</label>
+                        <input type="text" class="form-control auto-save" id="d4_sim_result" placeholder="مثال: وافق 12 من أصل 15 متدرباً (بنسبة قبول 80%)">
+                    </div>
+                    <div class="form-group">
+                        <label>5. القرار الاستراتيجي لفريق العمل:</label>
+                        <select class="form-control auto-save" id="d4_sim_decision">
+                            <option value="">-- اختر القرار بناءً على الاختبار --</option>
+                            <option value="Persevere">استمرار مع تحسين التجربة (Persevere with Optimization)</option>
+                            <option value="Pivot">تعديل مسار جزئي في أحد عناصر النموذج (Strategic Pivot)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity 4.2: MVBP Specification -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-cube"></i></div>
+                        <h2>نشاط (4.2): بطاقة مواصفات المنتج التجاري الأدنى (MVBP Card)</h2>
+                    </div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <span class="step-badge">Aulet Steps 22 & 23 - 20 دقيقة</span>
+                        <button class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;" onclick="openCaseStudyModal('day4_2')">
+                            🔍 نموذج سكن طالب
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid-4" style="grid-template-columns: 1fr 1fr; margin-bottom:14px;">
+                    <div class="form-group">
+                        <label>1. شكل وهيئة نسخة MVBP الأولى:</label>
+                        <input type="text" class="form-control auto-save" id="mvbp_format" placeholder="مثال: صفحة ويب تفاعلية PWA مدعومة بواتساب أعمال">
+                    </div>
+                    <div class="form-group">
+                        <label>2. آلية إثبات الدفع المالي الفعلي (Step 23):</label>
+                        <input type="text" class="form-control auto-save" id="mvbp_payment_proof" placeholder="مثال: تحصيل عربون حجز 200 جنيه من أول 30 عميلاً">
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom:14px;">
+                    <label>3. الوظائف الثلاث الحتمية للإطلاق التجاري الأول:</label>
+                    <textarea class="form-control auto-save" id="mvbp_3_features" placeholder="1) كتالوج مصور موثق 360 درجة، 2) نموذج مطابقة رفقاء السكن، 3) بوابة دفع إلكتروني لعربون الحجز وإصدار عقد موحد..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>4. الميزات المؤجلة للإصدارات اللاحقة (لتوفير التكلفة وتسريع النزول):</label>
+                    <input type="text" class="form-control auto-save" id="mvbp_deferred_features" placeholder="مثال: الذكاء الاصطناعي للتنبؤ، نظارات VR، وباقات الصيانة... (مؤجلة للسنة الثانية)">
+                </div>
+            </div>
+
+            <!-- Activity 4.3: 90-Day Plan -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-calendar-check"></i></div>
+                        <h2>نشاط (4.3): خطة العمل التنفيذية للأشهر الثلاثة الأولى (90-Day Action Plan)</h2>
+                    </div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <span class="step-badge">Aulet Step 24 - 20 دقيقة</span>
+                        <button class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;" onclick="openCaseStudyModal('day4_3')">
+                            🔍 نموذج سكن طالب
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th style="width:20%;">المرحلة الزمنية</th>
+                                <th style="width:40%;">الأهداف التشغيلية والتسويقية المستهدفة</th>
+                                <th style="width:40%;">الإجراء والمخرج المطلوب تحقيقه</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>الشهر الأول (M1):</strong> البناء والتوثيق</td>
+                                <td><input type="text" class="form-control auto-save" id="m1_goals" placeholder="مثال: توثيق أول 40 غرفة وإطلاق موقع الويب التجريبي"></td>
+                                <td><input type="text" class="form-control auto-save" id="m1_deliverable" placeholder="مثال: توقيع تفاهم مع 15 مالك وتعيين 5 سفراء"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>الشهر الثاني (M2):</strong> الإطلاق والمبيعات</td>
+                                <td><input type="text" class="form-control auto-save" id="m2_goals" placeholder="مثال: استهداف 100 حجز مدفوع وتغطية تكلفة COCA"></td>
+                                <td><input type="text" class="form-control auto-save" id="m2_deliverable" placeholder="مثال: حملة تيك توك وتحقيق إيرادات أولية 35 ألف ج"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>الشهر الثالث (M3):</strong> التوسع والاحتضان</td>
+                                <td><input type="text" class="form-control auto-save" id="m3_goals" placeholder="مثال: قياس رضا العملاء وتجهيز ملف جولة الاستثمار"></td>
+                                <td><input type="text" class="form-control auto-save" id="m3_deliverable" placeholder="مثال: التقدم لحاضنة أعمال تكنولوجية جامعية"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Pitch Deck Checklist -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-chalkboard-user"></i></div>
+                        <h2>جاهزية شرائح العرض التقديمي النهائي (Pitch Deck 10 Slides)</h2>
+                    </div>
+                    <span class="step-badge">5 دقائق عرض أمام لجنة التحكيم</span>
+                </div>
+
+                <div class="grid-4" style="grid-template-columns: 1fr 1fr;">
+                    <div>
+                        <label style="display:flex; align-items:center; gap:8px; margin-bottom:8px; cursor:pointer;">
+                            <input type="checkbox" class="auto-save" id="chk_slide_1"> 1. شريحة الغلاف والعنوان والشعار وأسماء الفريق
+                        </label>
+                        <label style="display:flex; align-items:center; gap:8px; margin-bottom:8px; cursor:pointer;">
+                            <input type="checkbox" class="auto-save" id="chk_slide_2"> 2. المشكلة الحقيقية وحجم المعاناة والبدائل القاصرة
+                        </label>
+                        <label style="display:flex; align-items:center; gap:8px; margin-bottom:8px; cursor:pointer;">
+                            <input type="checkbox" class="auto-save" id="chk_slide_3"> 3. الحل الرقمي المبتكر والجوهر الداخلي الحصين
+                        </label>
+                        <label style="display:flex; align-items:center; gap:8px; margin-bottom:8px; cursor:pointer;">
+                            <input type="checkbox" class="auto-save" id="chk_slide_4"> 4. السوق الأولي (Beachhead) وبطاقة شخصية العميل
+                        </label>
+                        <label style="display:flex; align-items:center; gap:8px; margin-bottom:8px; cursor:pointer;">
+                            <input type="checkbox" class="auto-save" id="chk_slide_5"> 5. الموقف التنافسي 2×2 وموقع الريادة
+                        </label>
+                    </div>
+                    <div>
+                        <label style="display:flex; align-items:center; gap:8px; margin-bottom:8px; cursor:pointer;">
+                            <input type="checkbox" class="auto-save" id="chk_slide_6"> 6. لوحة نموذج العمل والتسعير القائم على القيمة
+                        </label>
+                        <label style="display:flex; align-items:center; gap:8px; margin-bottom:8px; cursor:pointer;">
+                            <input type="checkbox" class="auto-save" id="chk_slide_7"> 7. اقتصاديات الوحدة (LTV / COCA) وقنوات الوصول
+                        </label>
+                        <label style="display:flex; align-items:center; gap:8px; margin-bottom:8px; cursor:pointer;">
+                            <input type="checkbox" class="auto-save" id="chk_slide_8"> 8. نتائج اختبار المحاكاة ودليل قبول الدفع الفعلي
+                        </label>
+                        <label style="display:flex; align-items:center; gap:8px; margin-bottom:8px; cursor:pointer;">
+                            <input type="checkbox" class="auto-save" id="chk_slide_9"> 9. مواصفات نسخة MVBP وخطة الـ 90 يوماً
+                        </label>
+                        <label style="display:flex; align-items:center; gap:8px; margin-bottom:8px; cursor:pointer;">
+                            <input type="checkbox" class="auto-save" id="chk_slide_10"> 10. الخاتمة والدعوة لاتخاذ إجراء (Call to Action)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 15px;">
+                <button class="btn btn-primary" onclick="switchTab('tab-portfolio')">
+                    عرض ملف المشروع الختامي الـ 17 بنداً <i class="fa-solid fa-arrow-left"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- TAB 6: FINAL PROJECT PORTFOLIO (17 ITEMS) -->
+        <div id="tab-portfolio" class="tab-pane">
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-file-signature"></i></div>
+                        <h2>ملف المشروع النهائي المعتمد (Final Project Portfolio - البنود الـ 17)</h2>
+                    </div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <span class="step-badge">وثيقة التسليم والتحكيم الرسمية</span>
+                        <button class="btn btn-success" onclick="syncPortfolioFromWorksheets()">
+                            <i class="fa-solid fa-arrows-rotate"></i> مزامنة تلقائية من ورش العمل
+                        </button>
+                    </div>
+                </div>
+
+                <div class="callout callout-info">
+                    📋 <strong>وثيقة التسليم والتحكيم:</strong> هذا الملف هو المستند الرسمي الموحد الذي يقدمه الفريق للجنة التحكيم في اليوم الرابع للحصول على درجات التقييم الـ 100.
+                </div>
+
+                <div class="grid-4" style="grid-template-columns: 1fr 1fr; margin-bottom:14px;">
+                    <div class="form-group">
+                        <label>1. شعار المشروع اللفظي (Slogan):</label>
+                        <input type="text" class="form-control auto-save" id="pf_slogan" placeholder="عبارة تسويقية معبرة تعلق بالأذهان...">
+                    </div>
+                    <div class="form-group">
+                        <label>2. فكرة المشروع المكثفة في جملة واحدة:</label>
+                        <input type="text" class="form-control auto-save" id="pf_summary_pitch" placeholder="لخص جوهر المنصة الرقمية في جملة واحدة واضحة...">
+                    </div>
+                </div>
+
+                <div class="grid-4" style="grid-template-columns: 1fr 1fr; margin-bottom:14px;">
+                    <div class="form-group">
+                        <label>3. حجم السوق المتاح الإجمالي بالسوق الأولي (TAM):</label>
+                        <input type="text" class="form-control auto-save" id="pf_tam" placeholder="مثال: 6000 طالب × 350 ج = 2,100,000 جنيه سنوياً">
+                    </div>
+                    <div class="form-group">
+                        <label>4. الأسواق المجاورة اللاحقة للتوسع (Follow-on Markets):</label>
+                        <input type="text" class="form-control auto-save" id="pf_followon" placeholder="النطاق الجغرافي والشرائح المستهدفة بعد تثبيت الأقدام...">
+                    </div>
+                </div>
+
+                <div class="grid-4" style="grid-template-columns: 1fr 1fr; margin-bottom:14px;">
+                    <div class="form-group">
+                        <label>5. إدارة المخاطر والتحديات (المخاطرة الأولى وعلاجها الوقائي):</label>
+                        <textarea class="form-control auto-save" id="pf_risk_1" placeholder="مثال: تراجع المالك عن الحجز -> توقيع اتفاقية بشرط جزائي وبديل مكافئ فوري"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>6. إدارة المخاطر والتحديات (المخاطرة الثانية وعلاجها الوقائي):</label>
+                        <textarea class="form-control auto-save" id="pf_risk_2" placeholder="مثال: تخوف من الدفع بالمحفظة -> إتاحة الدفع النقدي في فوري وفاتورة رسمية"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom:14px;">
+                    <label>7. النداء الصريح لاتخاذ إجراء في ختام العرض (Call to Action - CTA):</label>
+                    <input type="text" class="form-control auto-save" id="pf_cta" placeholder="ما الذي يطلبه المشروع من لجنة التحكيم؟ (مثال: الحصول على احتضان تكنولوجي وتمويل 50 ألف ج)">
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 15px;">
+                <button class="btn btn-primary" onclick="switchTab('tab-post')">
+                    الانتقال لمنظومة التقييم والتحكيم <i class="fa-solid fa-arrow-left"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- TAB 7: POST-ASSESSMENT & RUBRIC -->
+        <div id="tab-post" class="tab-pane">
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-clipboard-check"></i></div>
+                        <h2>قوائم التحقق اليومية لمخرجات التدريب (Daily Checklists)</h2>
+                    </div>
+                    <span class="step-badge">المطابقة والتثبت</span>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th style="width:20%;">اليوم التدريبي</th>
+                                <th style="width:60%;">المخرج الإلزامي المطلوب تحققه</th>
+                                <th style="width:20%;">حالة التحقق</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>اليوم الأول</strong></td>
+                                <td>صياغة المشكلة، مصفوفة السوق الأولي (Beachhead)، وبطاقة شخصية العميل (Persona Card)</td>
+                                <td><label><input type="checkbox" class="auto-save" id="chk_day1_verified"> تم الإنجاز والاعتماد</label></td>
+                            </tr>
+                            <tr>
+                                <td><strong>اليوم الثاني</strong></td>
+                                <td>خريطة رحلة العميل، مواصفات الشاشات، القيمة المقاسة كمياً، والجوهر ومصفوفة 2×2</td>
+                                <td><label><input type="checkbox" class="auto-save" id="chk_day2_verified"> تم الإنجاز والاعتماد</label></td>
+                            </tr>
+                            <tr>
+                                <td><strong>اليوم الثالث</strong></td>
+                                <td>لوحة نموذج العمل (BMC)، هيكل التسعير 80/20، اقتصاديات الوحدة (LTV/COCA)، ومصفوفة RACI</td>
+                                <td><label><input type="checkbox" class="auto-save" id="chk_day3_verified"> تم الإنجاز والاعتماد</label></td>
+                            </tr>
+                            <tr>
+                                <td><strong>اليوم الرابع</strong></td>
+                                <td>نتائج المحاكاة، مواصفات MVBP، خطة الـ 90 يوماً، ملف الـ 17 عنصراً، وعرض Pitch Deck</td>
+                                <td><label><input type="checkbox" class="auto-save" id="chk_day4_verified"> تم الإنجاز والاعتماد</label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Summative Reflection Questions -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h2>التقييم البعدي وقياس الأثر (Summative Post-Assessment)</h2>
+                    </div>
+                    <span class="step-badge">تفكير تأملي ختامي</span>
+                </div>
+
+                <div class="form-group" style="margin-bottom:14px;">
+                    <label>1. كيف تغير مفهومك لريادة الأعمال الرقمية من "البدء بكتابة الكود" إلى "منهجية ريادة الأعمال المنضبطة"؟</label>
+                    <textarea class="form-control auto-save" id="post_q1" placeholder="اكتب تأملك الشخصي وخلاصة ما تعلمته..."></textarea>
+                </div>
+
+                <div class="form-group" style="margin-bottom:14px;">
+                    <label>2. ما هو أهم قرار استراتيجي اتخذه فريقك خلال الأيام الأربعة ساهم في تحسين مسار المشروع وتجنب فشله؟</label>
+                    <textarea class="form-control auto-save" id="post_q2" placeholder="صف القرار المحوري وتأثيره..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>3. إذا أتيحت لك فرصة إطلاق هذا المشروع فعلياً في السوق المصري غداً، فما هي أول خطوة عملية ستنفذها؟</label>
+                    <input type="text" class="form-control auto-save" id="post_q3" placeholder="حدد أول خطوة تنفيذية واقعية...">
+                </div>
+            </div>
+
+            <!-- Rubric Table (100 Points) -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="icon-badge"><i class="fa-solid fa-scale-balanced"></i></div>
+                        <h2>مصفوفة تحكيم المشروعات النهائية الرسمية (100 درجة)</h2>
+                    </div>
+                    <span class="step-badge">معايير لجنة التقييم المعتمدة</span>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th style="width:25%;">المحور التقييمي</th>
+                                <th style="width:60%;">معايير التقييم التفصيلية</th>
+                                <th style="width:15%;">الدرجة القصوى</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. المشكلة والسوق المستهدف</strong></td>
+                                <td>وضوح المشكلة المعالجة، دقة تجزئة السوق، اختيار السوق الأولي (Beachhead)، وواقعية شخصية العميل (Persona).</td>
+                                <td style="text-align:center; font-weight:800; color:var(--primary);">15 درجة</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. الحل الرقمي والقيمة المقترحة</strong></td>
+                                <td>ابتكار الحل، اكتمال رحلة الاستخدام، قياس القيمة كمياً (Quantified Value)، وتحديد الجوهر التنافسي (The Core).</td>
+                                <td style="text-align:center; font-weight:800; color:var(--primary);">20 درجة</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. نموذج العمل والجدوى المالية</strong></td>
+                                <td>وضوح مصادر الإيرادات، عدالة التسعير، منطقية اقتصاديات الوحدة (LTV / COCA ≥ 3x)، وتوزيع المهام التشغيلية (RACI).</td>
+                                <td style="text-align:center; font-weight:800; color:var(--primary);">20 درجة</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. الاختبار والتحقق والمحاكاة</strong></td>
+                                <td>تحديد الافتراضات الحرجة القاتلة، جودة تصميم وتنفيذ تجربة المحاكاة بالقاعة، وتحديد مواصفات MVBP وشروط الدفع الفعلي.</td>
+                                <td style="text-align:center; font-weight:800; color:var(--primary);">15 درجة</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5. اكتمال ملف المشروع النهائي</strong></td>
+                                <td>استيفاء كافة العناصر الـ 17 في وثيقة ملف المشروع، واتساق البيانات واللغة العلمية وسلامة التوثيق المرجعي.</td>
+                                <td style="text-align:center; font-weight:800; color:var(--primary);">15 درجة</td>
+                            </tr>
+                            <tr>
+                                <td><strong>6. مهارات العرض والإلقاء (Pitching)</strong></td>
+                                <td>الالتزام بالوقت (5 دقائق)، جودة الشرائح العشر، ثقة المتحدث، والقدرة على الإجابة المقنعة على أسئلة المحكمين.</td>
+                                <td style="text-align:center; font-weight:800; color:var(--primary);">15 درجة</td>
+                            </tr>
+                            <tr style="background:#eff6ff;">
+                                <td colspan="2"><strong>المجموع الكلي النهائي لمشروع التخرج:</strong></td>
+                                <td style="text-align:center; font-weight:900; font-size:1.1rem; color:var(--primary-dark);">100 درجة</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Case Study Modal -->
+    <div id="caseStudyModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeCaseStudyModal()">&times;</button>
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px; color:var(--primary);">
+                <i class="fa-solid fa-lightbulb fa-2x"></i>
+                <h3 id="modalTitle">دراسة الحالة الاسترشادية: منصة «سَكَن طُلاب» (SakanTaleb)</h3>
+            </div>
+            <div id="modalBody" style="font-size:0.92rem; line-height:1.7; color:var(--text-main);">
+                <!-- Dynamically loaded content -->
+            </div>
+            <div style="text-align:left; margin-top:20px;">
+                <button class="btn btn-outline" onclick="closeCaseStudyModal()">إغلاق النافذة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="fa-solid fa-circle-check" style="color:var(--success);"></i>
+        <span id="toastMessage">تم الحفظ بنجاح!</span>
+    </div>
+
+    <!-- Bottom Actions Toolbar -->
+    <div class="bottom-actions">
+        <div style="font-size:0.85rem; color:var(--text-muted);">
+            <i class="fa-solid fa-cloud-arrow-up"></i> يتم حفظ مدخلاتك تلقائياً في ذاكرة جهازك.
+        </div>
+        <div style="display:flex; gap:10px;">
+            <button class="btn btn-success" onclick="saveData(true)">
+                <i class="fa-solid fa-floppy-disk"></i> حفظ الآن
+            </button>
+            <button class="btn btn-primary" onclick="window.print()">
+                <i class="fa-solid fa-print"></i> طباعة كـ PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        const STORAGE_KEY = 'digital_entrepreneurship_trainee_data_27';
+
+        // Case Studies Reference Data
+        const caseStudyContents = {
+            intro: `
+                <h4>نظرة عامة على مشروع منصة «سَكَن طُلاب» (SakanTaleb):</h4>
+                <p><strong>المشكلة:</strong> يعاني أكثر من 80,000 طالب مغترب سنوياً بالقاهرة الكبرى من استغلال سماسرة الشوارع، وغموض الأسعار، وسرقة التأمين، وغياب العقود القانونية.</p>
+                <p><strong>الحل:</strong> منصة سوق رقمية ثنائية الجانب (Two-Sided Marketplace) تربط الطلاب بملاك العقارات مع توثيق ميداني بالفيديو 360 درجة، وعقد حجز إلكتروني موحد، وخوارزمية مطابقة الزميل.</p>
+                <p><strong>السوق الأولي:</strong> طلاب المعاهد التكنولوجية والهندسية المستجدون بحلوان والمعادي (حاجة ملحة وتركز جغرافي عالٍ).</p>
+            `,
+            day1_1: `
+                <h4>حل ورشة عمل (1.1): فكرة منصة «سَكَن طُلاب»</h4>
+                <p>• <strong>المشكلة:</strong> استغلال السماسرة، عمولات باهظة (شهر إيجار كامل)، وغياب الأمان والعقود.</p>
+                <p>• <strong>المتضرر:</strong> الطلاب المستجدون وأولياء أمورهم وملاك العقارات بحلوان.</p>
+                <p>• <strong>البدائل القاصرة:</strong> البحث العشوائي بالسفر الشاق ومجموعات فيسبوك غير الموثوقة.</p>
+                <p>• <strong>الحل الرقمي:</strong> حجز إلكتروني آمن مع معاينة موثقة 360 درجة وضمان استرداد 100% خلال 24 ساعة.</p>
+            `,
+            day1_2: `
+                <h4>حل ورشة عمل (1.2): مصفوفة السوق الأولي لمنصة «سَكَن طُلاب»</h4>
+                <p>• الشريحة المختارة: طلاب المعاهد الهندسية والتكنولوجية المغتربون بحلوان والمعادي.</p>
+                <p>• المبرر: تركز جغرافي عالٍ، إلحاح قاهر للسكن قبل الدراسة، سهولة الوصول عبر اتحادات الطلاب، وانعدام المنافسة الرقمية المباشرة.</p>
+            `,
+            day1_3: `
+                <h4>حل ورشة عمل (1.3): شخصية العميل المثالي (أحمد إبراهيم)</h4>
+                <p>• السن: 19 سنة، طالب مستجد بالفرقة الأولى بمعهد تكنولوجي بحلوان، قادم من دسوق بكفر الشيخ.</p>
+                <p>• الميزانية: 1200 - 1600 ج شهرياً من والده (موظف ومزارع).</p>
+                <p>• السلوك الرقمي: مستخدم لتيك توك وتليجرام ومحفظة فودافون كاش وبطاقة ميزة.</p>
+                <p>• المعيار الحاسم للثقة: رؤية فيديو 360 درجة موثق + عقد إلكتروني موحد + ضمان استرداد كامل للأموال خلال 24 ساعة.</p>
+            `,
+            day2_1: `
+                <h4>حل ورشة عمل (2.1): دورة حياة الاستخدام لمنصة «سَكَن طُلاب»</h4>
+                <p>1. يرى إعلان ريلز على تيك توك برعاية رعاية الشباب -> 2. يدخل المنصة ويحدد الميزانية والمسافة -> 3. يشاهد جولة 360 درجة وتقييمات الطلاب -> 4. يسجل برقم هاتفه في 3 نقرات -> 5. يدفع عربون 200 ج بمحفظة كاش مجمدة بالضمان -> 6. يستلم الغرفة ويؤكد الاستلام -> 7. ينال كود خصم لمشاركة أصدقائه.</p>
+            `,
+            day2_2: `
+                <h4>حل ورشة عمل (2.2): القيمة المقاسة كمياً لمنصة «سَكَن طُلاب»</h4>
+                <p>• <strong>توفير الوقت:</strong> من 4-6 أيام بحث شاق إلى أقل من 30 دقيقة (توفير 95% من الوقت).</p>
+                <p>• <strong>توفير المال:</strong> من عمولة سمسار 1200 ج إلى 350 ج رسوم ثابتة موحدة (توفير أكثر من 75%).</p>
+                <p>• <strong>رفع الأمان:</strong> معاينات ميدانية معتمدة وعقد إلكتروني يرفع نسبة الأمان إلى أكثر من 98%.</p>
+            `,
+            day2_3: `
+                <h4>حل ورشة عمل (2.3): الجوهر التنافسي ومصفوفة 2×2</h4>
+                <p>• <strong>الجوهر الحصين (The Core):</strong> شبكة المعاينة والتوثيق الميداني الحصري والشراكة المؤسسية مع اتحادات معاهد وجامعة حلوان.</p>
+                <p>• <strong>الموقف التنافسي:</strong> تتربع سكن طلاب في الربع العلوي الأيمن لأنها تجمع بين أقصى درجات الأمان الميداني الموثق والسرعة الفائقة والتوفير المالي مقارنة بالسماسرة والمدن الجامعية.</p>
+            `,
+            day3_1: `
+                <h4>حل ورشة عمل (3.1): نموذج عمل سكن طلاب (BMC)</h4>
+                <p>منصة وسوق ثنائية الجانب قائمة على عمولة المعاملة الناجحة (350 جنيه لكل حجز: 200 ج من الطالب + 150 ج من المالك) + خدمات إضافية لصيانة ونقل الأمتعة (100 ج سنوياً).</p>
+            `,
+            day3_2: `
+                <h4>حل ورشة عمل (3.2): اقتصاديات الوحدة لسكن طلاب</h4>
+                <p>• صافي الربح من المعاملة = 320 جنيهاً.</p>
+                <p>• عدد المعاملات المتوقعة للعميل = 2.2 معاملة -> LTV = 704 جنيهات.</p>
+                <p>• تكلفة اكتساب العميل COCA = 14,000 ج ÷ 100 طالب = 140 جنيهاً.</p>
+                <p>• النسبة الذهبية: LTV / COCA = 704 / 140 = 5.03x (نسبة ممتازة تفوق 3.0x بنجاح باهر).</p>
+            `,
+            day3_3: `
+                <h4>حل ورشة عمل (3.3): وحدة اتخاذ القرار DMU وتوزيع RACI</h4>
+                <p>• المستخدم النهائي: الطالب (أحمد) | المشتري الاقتصادي: ولي أمره (الوالد) | صاحب حق النقض: الأم أو الطالب حال الشك في النصب.</p>
+                <p>• العمليات الميدانية: طارق (Accountable) | الدعم والوساطة: نورهان (Responsible) | التقنية: عمر (Accountable) | التسويق: سارة (Accountable).</p>
+            `,
+            day4_1: `
+                <h4>حل ورشة عمل (4.1): الفرضية القاتلة واختبار المحاكاة</h4>
+                <p>• الفرضية: "استعداد الطلاب وأولياء أمورهم لدفع عربون مسبق 200 ج عبر الهاتف لمنصة ناشئة قبل المعاينة الفعلية".</p>
+                <p>• الاختبار والمحاكاة: محاكاة بطاقة غرفة مع شرط "استرداد كامل للأموال 100% خلال 24 ساعة إذا اختلفت المواصفات".</p>
+                <p>• النتيجة: استجاب 12 من أصل 15 طالباً (80% قبول) -> القرار: الاستمرار بقوة (Persevere) مع إبراز شهادة الضمان والشراكة.</p>
+            `,
+            day4_2: `
+                <h4>حل ورشة عمل (4.2): نسخة MVBP لسكن طلاب</h4>
+                <p>صفحة ويب خفيفة وسريعة PWA وبوت واتساب أعمال، تتضمن: 40 غرفة موثقة 360 درجة، استبيان مطابقة الزميل، وبوابة دفع إلكتروني لعربون الحجز، مع تأجيل ميزات الذكاء الاصطناعي وVR للعام القادم.</p>
+            `,
+            day4_3: `
+                <h4>حل ورشة عمل (4.3): خطة الـ 90 يوماً</h4>
+                <p>• الشهر الأول: توثيق أول 40 غرفة وإطلاق موقع الويب وبوت الواتساب.</p>
+                <p>• الشهر الثاني: إطلاق حملة التنسيق وإتمام أول 100 حجز مدفوع (35,000 ج إيرادات).</p>
+                <p>• الشهر الثالث: قياس رضا العملاء وتجهيز ملف العرض للتقدم لحاضنة تكنولوجية جامعية.</p>
+            `
+        };
+
+        // Tab Switching
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            const targetPane = document.getElementById(tabId);
+            if (targetPane) targetPane.classList.add('active');
+
+            const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick').includes(tabId));
+            if (activeBtn) activeBtn.classList.add('active');
+
+            window.scrollTo({ top: 120, behavior: 'smooth' });
+        }
+
+        // Quiz Logic
+        let quizAnswers = {};
+        function checkQuiz(element, selectedIdx) {
+            const quizItem = element.closest('.quiz-item');
+            const correctIdx = parseInt(quizItem.dataset.correct);
+            const options = quizItem.querySelectorAll('.quiz-option');
+            const explanation = quizItem.querySelector('.quiz-explanation');
+
+            options.forEach(opt => {
+                opt.classList.remove('correct', 'wrong');
+            });
+
+            if (selectedIdx === correctIdx) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+                options[correctIdx].classList.add('correct');
+            }
+
+            if (explanation) explanation.style.display = 'block';
+
+            const quizItems = Array.from(document.querySelectorAll('.quiz-item'));
+            const itemIdx = quizItems.indexOf(quizItem);
+            quizAnswers[itemIdx] = (selectedIdx === correctIdx);
+
+            // Calculate quiz score
+            let correctCount = Object.values(quizAnswers).filter(Boolean).length;
+            const resBox = document.getElementById('quizResultBox');
+            const resText = document.getElementById('quizScoreText');
+            if (resBox && resText) {
+                resBox.style.display = 'block';
+                resText.innerText = `درجتك في التقييم القبلي: ${correctCount} من ${quizItems.length}`;
+            }
+
+            saveData(false);
+            updateProgress();
+        }
+
+        // Unit Economics Calculator
+        function calculateUnitEconomics() {
+            const profit = parseFloat(document.getElementById('calc_profit_per_tx')?.value) || 0;
+            const txCount = parseFloat(document.getElementById('calc_tx_count')?.value) || 0;
+            const budget = parseFloat(document.getElementById('calc_marketing_budget')?.value) || 0;
+            const customers = parseFloat(document.getElementById('calc_acquired_customers')?.value) || 1;
+
+            const ltv = profit * txCount;
+            const coca = customers > 0 ? (budget / customers) : 0;
+            const ratio = coca > 0 ? (ltv / coca) : 0;
+
+            document.getElementById('res_ltv').innerText = Math.round(ltv) + ' ج';
+            document.getElementById('res_coca').innerText = Math.round(coca) + ' ج';
+            document.getElementById('res_ratio').innerText = ratio.toFixed(2) + 'x';
+
+            const badge = document.getElementById('res_badge');
+            if (ratio >= 3.0) {
+                badge.className = 'calc-status-badge badge-healthy';
+                badge.innerText = '🟢 ناجح ومستدام (تجاوز 3.0x)';
+            } else if (ratio > 0) {
+                badge.className = 'calc-status-badge badge-danger';
+                badge.innerText = '🔴 خطر وغير مستدام (أقل من 3.0x)';
+            } else {
+                badge.className = 'calc-status-badge';
+                badge.innerText = 'يرجى إدخال البيانات';
+            }
+        }
+
+        // Modals
+        function openCaseStudyModal(key) {
+            const modal = document.getElementById('caseStudyModal');
+            const body = document.getElementById('modalBody');
+            body.innerHTML = caseStudyContents[key] || caseStudyContents['intro'];
+            modal.classList.add('active');
+        }
+
+        function closeCaseStudyModal() {
+            document.getElementById('caseStudyModal').classList.remove('active');
+        }
+
+        // Local Storage & Auto-save
+        function saveData(showToast = false) {
+            const data = {};
+            document.querySelectorAll('.auto-save').forEach(input => {
+                if (input.type === 'checkbox') {
+                    data[input.id] = input.checked;
+                } else {
+                    data[input.id] = input.value;
+                }
+            });
+            data['quizAnswers'] = quizAnswers;
+
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+
+            if (showToast) {
+                showToastNotification('تم حفظ جميع إجاباتك وبياناتك بنجاح! 💾');
+            }
+            updateProgress();
+        }
+
+        function loadData() {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if (!raw) return;
+            try {
+                const data = JSON.parse(raw);
+                for (let id in data) {
+                    if (id === 'quizAnswers') {
+                        quizAnswers = data[id] || {};
+                        continue;
+                    }
+                    const elem = document.getElementById(id);
+                    if (elem) {
+                        if (elem.type === 'checkbox') {
+                            elem.checked = data[id];
+                        } else {
+                            elem.value = data[id];
+                        }
+                    }
+                }
+                calculateUnitEconomics();
+                updateProgress();
+            } catch (e) {
+                console.error('Error loading data', e);
+            }
+        }
+
+        // Auto sync portfolio
+        function syncPortfolioFromWorksheets() {
+            const d1App = document.getElementById('d1_app_name')?.value;
+            const proj = document.getElementById('project_name')?.value;
+            if (!document.getElementById('pf_summary_pitch')?.value) {
+                document.getElementById('pf_summary_pitch').value = document.getElementById('d1_digital_solution')?.value || '';
+            }
+            showToastNotification('تمت مزامنة بيانات ورش العمل إلى ملف المشروع! 🔄');
+            saveData(false);
+        }
+
+        // Calculate progress percentage
+        function updateProgress() {
+            const inputs = document.querySelectorAll('.auto-save');
+            let filled = 0;
+            inputs.forEach(input => {
+                if (input.type === 'checkbox' && input.checked) filled++;
+                else if (input.type !== 'checkbox' && input.value && input.value.trim().length > 0) filled++;
+            });
+            const percent = Math.min(100, Math.round((filled / inputs.length) * 100));
+            document.getElementById('globalProgressFill').style.width = percent + '%';
+            document.getElementById('globalProgressText').innerText = percent + '%';
+        }
+
+        function showToastNotification(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').innerText = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        function exportDataJson() {
+            saveData(false);
+            const data = localStorage.getItem(STORAGE_KEY) || '{}';
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ريادة_الأعمال_الرقمية_بيانات_المتدرب_${new Date().toISOString().slice(0,10)}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Event listeners for auto-save on input
+        document.addEventListener('DOMContentLoaded', () => {
+            loadData();
+            document.querySelectorAll('.auto-save').forEach(input => {
+                input.addEventListener('input', () => {
+                    saveData(false);
+                });
+                input.addEventListener('change', () => {
+                    saveData(false);
+                });
+            });
+            calculateUnitEconomics();
+        });
+
+        // Close modal on click outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('caseStudyModal');
+            if (event.target === modal) {
+                closeCaseStudyModal();
+            }
+        };
+    </script>
+</body>
+</html>
